@@ -1,0 +1,42 @@
+@using blog.Models;
+@using System.Collections.Generic
+<style>
+    table tr td {
+        align-items: center;
+    }
+</style>
+<h2><strong>Products:</strong> (<a href="/Products/Create" style="color: blue;">create new</a>)</h2>
+@{
+    List<ProductClass> products = new List<ProductClass>();
+    products = ViewBag.products;
+}
+<div align = "center">
+<table border="3" width = "300px">
+    <tr align="center">
+        <th align="center">
+            <h2>ID  </h2>
+        </th>
+        <th align="center">
+            <h2 >NAME  </h2>
+        </th>
+        <th align="center">
+           <h2>PRICE  </h2>
+        </th>
+    </tr>
+
+
+
+@foreach(var item in products) {
+    <tr>
+    <td align="center"><h4>@item.id </h4></td>
+    <td align="center"><h4>@item.name </h4></td>
+    <td align="center"><h4>@item.money </h4></td>
+    <!--<td> @Html.ActionLink("Delete", "admin", new{i = item.id})</td> -->
+   <td><a href="/Products/Edit" style="color: blue;">Edit</a></td>
+    <td><a href="/Products/Delete" style="color: blue;">Delete</a></td>
+   
+    </tr>
+}
+</table>
+<a href="/Products/Index" style="color: blue;" >переход</a>
+</div>
