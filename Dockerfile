@@ -6,7 +6,7 @@ WORKDIR /app
 EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0-nanoserver-1803 AS build
-WORKDIR I:/MVC Project/blog
+WORKDIR /src
 COPY ["blog.csproj", "./"]
 RUN dotnet restore "./blog.csproj"
 COPY . .
